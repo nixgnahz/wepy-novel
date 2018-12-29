@@ -1,0 +1,127 @@
+<style lang="less">
+  .detail_item {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ebebeb;
+    padding: 25rpx;
+    .avatar {
+      width: 190rpx;
+      height: 250rpx;
+    }
+    .detail {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-left: 25rpx;
+      .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .info {
+          display: flex;
+          flex-direction: column;
+          .name {
+            font-size: 30rpx;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          .author {
+            font-size: 26rpx;
+            color: #e1bb9b;
+            line-height: 50rpx;
+          }
+        }
+        .btn {
+          font-size: 28rpx;
+          width: 158rpx;
+          height: 56rpx;
+          line-height: 56rpx;
+          text-align: center;
+          border: 2rpx solid #ff8859;
+          border-radius: 10rpx;
+          color: #ff8859;
+        }
+      }
+      .desc {
+        font-size: 26rpx;
+        color: #999;
+        line-height: 44rpx;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/shop',
+      'pages/read',
+      'pages/chapter',
+      'pages/bookInfo',
+      'pages/more',
+      'pages/person',
+      'pages/search',
+      'pages/pay',
+      'pages/index'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#000',
+      navigationBarTitleText: '奇幻小说',
+      navigationBarTextStyle: 'white'
+    },
+    'tabBar': {
+      'color': '#868686',
+      'selectedColor': '#404040',
+      'list': [
+        {
+          'pagePath': 'pages/index',
+          'iconPath': 'assets/icon/home.png',
+          'selectedIconPath': 'assets/icon/home-selected.png',
+          'text': '书架'
+        },
+        {
+          'pagePath': 'pages/shop',
+          'iconPath': 'assets/icon/shop.png',
+          'selectedIconPath': 'assets/icon/shop-selected.png',
+          'text': '书城'
+        },
+        {
+          'pagePath': 'pages/search',
+          'iconPath': 'assets/icon/search.png',
+          'selectedIconPath': 'assets/icon/search-selected.png',
+          'text': '搜索'
+        },
+        {
+          'pagePath': 'pages/person',
+          'iconPath': 'assets/icon/person.png',
+          'selectedIconPath': 'assets/icon/person-selected.png',
+          'text': '我的'
+        }
+      ]
+    }
+  }
+
+  globalData = {
+    userInfo: {}
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+  }
+}
+</script>

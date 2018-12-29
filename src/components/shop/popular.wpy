@@ -1,0 +1,33 @@
+<template>
+  <title :info="popular">
+    <navigator slot="action" hoverClass="none" class="more" openType="navigate" url="./more?id={{popular.id}}">
+      <text>更多{{info.id}}</text>
+      <image class="more_icon" src="../../assets/more.png"></image>
+    </navigator>
+  </title>
+  <repeat for="{{popular.data}}" key="index" index="index" item="item">
+    <view class="popular_item">
+      <view class="order" wx:if="{{index < 3}}" style="background-image: url(http://wx.11babay.cn/uploads/p/pjNjl1htjHPnciglS6aC/1/e/6/b/5c2744d9eb55e.png)">{{index + 1}}</view>
+      <view class="order" wx:else style="background-image: url(http://wx.11babay.cn/uploads/p/pjNjl1htjHPnciglS6aC/a/a/e/7/5c2744d58fe23.png)">{{index + 1}}</view>
+      <view class="name">{{item.name}}</view>
+      <view class="author">{{item.author}}</view>
+    </view>
+  </repeat>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Title from '@/components/shop/title'
+
+  export default class Like extends wepy.component {
+    props = {
+      popular: {
+        type: Object
+      }
+    }
+
+    components = {
+      title: Title
+    }
+  }
+</script>

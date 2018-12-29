@@ -1,0 +1,31 @@
+<template>
+  <title :info="recommend"></title>
+  <swiper class="recommend-swiper" autoplay="true" circular="true" duration="500" interval="5000">
+    <repeat for="{{recommend.data}}" key="index" index="index" item="item">
+      <swiper-item class="list">
+        <repeat for="{{item}}" key="idx" index="idx" item="itm">
+          <item :item="itm"></item>
+        </repeat>
+      </swiper-item>
+    </repeat>
+  </swiper>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Title from '@/components/shop/title'
+  import Item from '@/components/shop/item'
+
+  export default class Recommend extends wepy.component {
+    props = {
+      recommend: {
+        type: Object
+      }
+    }
+
+    components = {
+      title: Title,
+      item: Item
+    }
+  }
+</script>

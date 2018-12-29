@@ -1,0 +1,16 @@
+<template>
+  <view class="novel-item">
+    <image lazyLoad="true" src="{{item.pic}}"></image>
+    <view class="novel-names">{{item.name}}</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Item extends wepy.component {
+    props = {
+      item: Object
+    }
+  }
+</script>

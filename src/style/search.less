@@ -1,0 +1,67 @@
+.search_title {
+  height: 48rpx;
+  line-height: 48rpx;
+  padding: 24rpx 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .search_title_txt {
+    color: #000922;
+    font-size: 30rpx;
+  }
+  .search_title_icon {
+    width: 35rpx;
+    height: 35rpx;
+    margin: 6rpx 10rpx 0;
+  }
+}
+
+.search_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search_hot {
+  padding: 10rpx 30rpx;
+  .listItem {
+    line-height: 60rpx;
+    border-radius: 15px;
+    margin: 0 12rpx 20rpx;
+    padding: 0 24rpx;
+    color: #ffffff;
+    font-size: 28rpx;
+    &:nth-child(6n+1) {
+      background: #99df84;
+    }
+    &:nth-child(6n+2) {
+      background: #c065e6;
+    }
+    &:nth-child(6n+3) {
+      background: #f4724b;
+    }
+    &:nth-child(6n+4) {
+      background: #56a1ff;
+    }
+    &:nth-child(6n+5) {
+      background: #fe7275;
+    }
+    &:nth-child(6n+6) {
+      background: #f5a623;
+    }
+  }
+}
+
+.search_history {
+  padding: 20rpx 30rpx;
+  .listItem {
+    line-height: 60rpx;
+    border: 1px solid #dde5eb;
+    border-radius: 30rpx;
+    padding: 0 24rpx;
+    margin: 0 8rpx 20rpx;
+    color: #a0a4ab;
+    font-size: 28rpx;
+  }
+}

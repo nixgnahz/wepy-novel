@@ -1,0 +1,158 @@
+<style lang="less">
+  .pay_rule {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 30rpx auto;
+    .rule_item {
+      width: 45%;
+      height: 120rpx;
+      color: #848B90;
+      text-align: center;
+      border: 2rpx solid #6eaefe;
+      margin-bottom: 30rpx;
+      font-size: 28rpx;
+      border-radius: 5rpx;
+      .rule_title {
+        margin-top: 20rpx;
+        margin-bottom: 10rpx;
+      }
+      &.active {
+        background: #6eaefe;
+        color: #fff;
+        .rule_title {
+          color: #fff;
+        }
+      }
+      &.inactive {
+        .rule_title {
+          color: #ff6600;
+        }
+        .rule_desc {
+          text {
+            color: #ff6600;
+          }
+        }
+      }
+    }
+  }
+  .pay_btn {
+    background-color: #ff6600;
+    color: #fff;
+    width: 90%;
+    font-size: 30rpx;
+    line-height: 90rpx;
+    height: 90rpx;
+    margin: 0rpx auto;
+    text-align: center;
+    border-radius: 10rpx;
+  }
+</style>
+
+<template>
+  <userInfo :userInfo="userInfo">
+    <view slot="money" class="account_money">阅币：<text>{{userInfo.money}}</text></view>
+  </userInfo>
+  <view class="pay_rule">
+    <repeat for="{{ruleArr}}" key="index" index="index" item="item">
+      <view @tap="changeIndex({{index}})" class="rule_item {{activeIndex == index ? 'active' : 'inactive'}}">
+        <view class="rule_title" wx:if="{{item.type != 1}}">{{item.money}}元</view>
+        <view class="rule_title" wx:else>{{item.money}} 月卡</view>
+        <view class="rule_desc" wx:if="{{item.type == 0}}">{{item.point}} + 送 <text>{{item.give}}</text> 阅币</view>
+        <view class="rule_desc" wx:if="{{item.type == 1}}">{{item.point}} + 每日领 <text>{{item.dayPoint}}</text> 阅币</view>
+        <view class="rule_desc" wx:if="{{item.type == 2}}">{{item.desc}}</view>
+      </view>
+    </repeat>
+  </view>
+  <view class="pay_btn">立即充值</view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import UserInfo from '@/components/base/userInfo'
+
+  export default class Pay extends wepy.page {
+    components = {
+      userInfo: UserInfo
+    }
+
+    data = {
+      activeIndex: 2,
+      userInfo: {
+        avatar: 'https://wx.qlogo.cn/mmopen/vi_32/1uicRfUe5tvNJ9rWibC2qll1PlEzykEaib9hpReknoWp7QV786XFhqftdVCefK2XFHJDrEfjibfqwr4qbWXCAU71Ww/132',
+        name: '我的英文名字叫zhangxin',
+        account: 'msd20180923',
+        money: 120,
+        gift: 0,
+        cash: '0.00'
+      },
+      ruleArr: [
+        {
+          id: 1,
+          type: 0,
+          money: 3,
+          point: 300,
+          give: 3
+        },
+        {
+          id: 2,
+          type: 0,
+          money: 20,
+          point: 2000,
+          give: 200
+        },
+        {
+          id: 3,
+          type: 0,
+          money: 30,
+          point: 3000,
+          give: 600
+        },
+        {
+          id: 4,
+          type: 0,
+          money: 100,
+          point: 10000,
+          give: 2000
+        },
+        {
+          id: 5,
+          type: 0,
+          money: 200,
+          point: 20000,
+          give: 4000
+        },
+        {
+          id: 6,
+          type: 1,
+          money: 45,
+          point: 1500,
+          dayPoint: 100
+        },
+        {
+          id: 7,
+          type: 1,
+          money: 114,
+          point: 4500,
+          dayPoint: 150
+        },
+        {
+          id: 8,
+          type: 2,
+          money: 366,
+          desc: '每天1元，全年免费看'
+        }
+      ]
+    }
+
+    methods = {
+      changeIndex (index) {
+        if (index !== this.activeIndex) {
+          this.activeIndex = index
+        }
+      }
+    }
+  }
+</script>

@@ -1,0 +1,68 @@
+<style lang="less">
+  .account_top {
+    background: #fff;
+    padding: 30rpx 30rpx;
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 1px #eee;
+    .account_avatar {
+      font-size: 0px;
+      image {
+        width: 110rpx;
+        height: 110rpx;
+        border-radius: 5rpx;
+      }
+    }
+    .account_info {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 100rpx;
+      margin: 5rpx 25rpx;
+      font-size: 30rpx;
+      .account_username {
+        color: #000;
+        font-size: 32rpx;
+      }
+      .account_num {
+        display: flex;
+        font-size: 29rpx;
+        flex-direction: row;
+        justify-content: space-between;
+        .account_money {
+          text {
+            color: #ee5e7b;
+          }
+        }
+      }
+    }
+  }
+</style>
+
+<template>
+  <view class="account_top">
+    <view class="account_avatar">
+      <image src="{{userInfo.avatar}}"></image>
+    </view>
+    <view class="account_info">
+      <view class="account_username">{{userInfo.name}}</view>
+      <view class="account_num">
+        <text>账号：{{userInfo.account}}</text>
+        <slot name="money"></slot>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class UserInfo extends wepy.component {
+    props = {
+      userInfo: {
+        type: Object
+      }
+    }
+  }
+</script>

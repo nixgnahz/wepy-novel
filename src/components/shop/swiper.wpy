@@ -1,0 +1,25 @@
+<template>
+  <view class="banner-pic">
+    <swiper autoplay="true" circular="true" duration="500" indicatorActiveColor="#ff730b" indicatorColor="#fff" indicatorDots="false" interval="5000">
+      <repeat for="{{swiper}}" key="index" index="index" item="item">
+        <swiper-item>
+          <view class="swiper-item">
+            <image class="image" lazyLoad="true" mode="widthFix" src="{{item.pic}}"></image>
+          </view>
+        </swiper-item>
+      </repeat>
+    </swiper>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Swiper extends wepy.component {
+    props = {
+      swiper: {
+        type: Object
+      }
+    }
+  }
+</script>

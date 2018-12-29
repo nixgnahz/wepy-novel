@@ -1,0 +1,32 @@
+<template>
+  <title :info="like">
+    <view class="change" slot="action">
+      <image src="../../assets/change.png"></image>
+      <text>换一批</text>
+    </view>
+  </title>
+  <view class="list">
+    <repeat for="{{like.data}}" key="index" index="index" item="item">
+      <item :item="item"></item>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Title from '@/components/shop/title'
+  import Item from '@/components/shop/item'
+
+  export default class Like extends wepy.component {
+    props = {
+      like: {
+        type: Object
+      }
+    }
+
+    components = {
+      title: Title,
+      item: Item
+    }
+  }
+</script>

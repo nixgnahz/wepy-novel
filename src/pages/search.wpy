@@ -1,0 +1,80 @@
+<style lang="less">
+  @import "../style/search.less";
+</style>
+
+<template>
+  <input placeholder="搜索书名、作者、出版社"></input>
+  <hot :hotSearch="hotSearch"></hot>
+  <recent :recentSearch="recentSearch"></recent>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Input from '@/components/base/input'
+  import Hot from '@/components/search/hot'
+  import Recent from '@/components/search/recent'
+
+  export default class Search extends wepy.page {
+    components = {
+      input: Input,
+      hot: Hot,
+      recent: Recent
+    }
+
+    data = {
+      hotSearch: [
+        {
+          id: 1,
+          text: '神医小农民'
+        },
+        {
+          id: 2,
+          text: '独家盛宠：废柴丑女要逆天'
+        },
+        {
+          id: 3,
+          text: '逍遥兵王'
+        },
+        {
+          id: 4,
+          text: '鬼医本色'
+        },
+        {
+          id: 5,
+          text: '修罗武神'
+        },
+        {
+          id: 6,
+          text: '龙纹战神'
+        },
+        {
+          id: 7,
+          text: '武逆'
+        },
+        {
+          id: 8,
+          text: '异界无敌系统'
+        },
+        {
+          id: 9,
+          text: '我的极品美女总裁'
+        }
+      ],
+      recentSearch: [
+        {
+          id: 1,
+          text: '神医小农民'
+        },
+        {
+          id: 2,
+          text: '我的极品美女总裁'
+        },
+        {
+          id: 3,
+          text: '逍遥兵王'
+        }
+      ],
+      keyword: ''
+    }
+  }
+</script>

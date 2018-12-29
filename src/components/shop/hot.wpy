@@ -1,0 +1,30 @@
+<template>
+  <title :info="hot">
+    <navigator slot="action" hoverClass="none" class="more" openType="navigate" url="./more?id={{hot.id}}">
+      <text>更多{{info.id}}</text>
+      <image class="more_icon" src="../../assets/more.png"></image>
+    </navigator>
+  </title>
+  <repeat for="{{hot.data}}" key="index" index="index" item="item">
+    <detail :item="item"></detail>
+  </repeat>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Title from '@/components/shop/title'
+  import Detail from '@/components/base/detail'
+
+  export default class Like extends wepy.component {
+    props = {
+      hot: {
+        type: Object
+      }
+    }
+
+    components = {
+      title: Title,
+      detail: Detail
+    }
+  }
+</script>

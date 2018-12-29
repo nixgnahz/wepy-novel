@@ -1,0 +1,23 @@
+<template>
+  <view class="search_title">
+    <text class="search_title_txt">搜索历史</text>
+      <image class="search_title_icon" src="../../assets/search/delete.png"></image>
+    </view>
+    <view class="search_list search_history">
+      <repeat for="{{recentSearch}}" key="index" index="index" item="item">
+        <view class="listItem">{{item.text}}</view>
+      </repeat>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Recent extends wepy.component {
+    props = {
+      recentSearch: {
+        type: Array
+      }
+    }
+  }
+</script>

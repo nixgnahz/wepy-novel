@@ -1,0 +1,29 @@
+<template>
+  <navigator hover-class="none" class="function_item" openType="navigate" url="{{url}}">
+    <slot name="icon"></slot>
+    <text class="txt">{{title}}</text>
+    <view>
+      <image wx:if="{{isNew}}" class="new_icon" src="../../assets/person/new.png"></image>
+      <image class="more_icon" src="../../assets/more.png"></image>
+    </view>
+  </navigator>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class NavigateItem extends wepy.component {
+    props = {
+      title: {
+        type: String
+      },
+      isNew: {
+        type: Boolean,
+        default: false
+      },
+      url: {
+        type: String
+      }
+    }
+  }
+</script>

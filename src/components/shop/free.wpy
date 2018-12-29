@@ -1,0 +1,42 @@
+<template>
+  <title :info="free">
+    <view class="countdown" slot="action">
+      <text>倒计时：</text>
+      <text class="border">{{hour}}</text>
+      <text>:</text>
+      <text class="border">{{minute}}</text>
+      <text>:</text>
+      <text class="border">{{second}}</text>
+    </view>
+  </title>
+  <view class="list">
+    <repeat for="{{free.data}}" key="index" index="index" item="item">
+      <item :item="item"></item>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Title from '@/components/shop/title'
+  import Item from '@/components/shop/item'
+
+  export default class Free extends wepy.component {
+    props = {
+      free: {
+        type: Object
+      }
+    }
+
+    components = {
+      title: Title,
+      item: Item
+    }
+
+    data = {
+      hour: 14,
+      minute: 12,
+      second: 54
+    }
+  }
+</script>

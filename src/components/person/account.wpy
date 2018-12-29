@@ -1,0 +1,28 @@
+<template>
+  <view class="account_list">
+    <view class="account_list_item">
+      <view>阅币</view>
+      <view class="blue">{{userInfo.money}}</view>
+    </view>
+    <view class="account_list_item">
+      <view>礼券</view>
+      <view class="blue">{{userInfo.gift}}</view>
+    </view>
+    <view class="account_list_item">
+      <view>余额</view>
+      <view class="blue">{{userInfo.cash}}</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class UserInfo extends wepy.component {
+    props = {
+      userInfo: {
+        type: Object
+      }
+    }
+  }
+</script>

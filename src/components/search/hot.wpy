@@ -1,0 +1,23 @@
+<template>
+  <view class="search_title">
+    <text class="search_title_txt">热门搜索</text>
+    <image class="search_title_icon" src="../../assets/search/change.png"></image>
+  </view>
+  <view class="search_list search_hot">
+    <repeat for="{{hotSearch}}" key="index" index="index" item="item">
+      <view class="listItem">{{item.text}}</view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Hot extends wepy.component {
+    props = {
+      hotSearch: {
+        type: Array
+      }
+    }
+  }
+</script>

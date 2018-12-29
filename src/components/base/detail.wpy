@@ -1,0 +1,27 @@
+<template>
+  <view class="detail_item">
+    <image class="avatar" lazyLoad="true" src="{{item.pic}}"></image>
+    <view class="detail">
+      <view class="top">
+        <view class="info">
+          <text class="name">{{item.name}}</text>
+          <text class="author">{{item.author}}</text>
+        </view>
+        <view class="btn">立即阅读</view>
+      </view>
+      <view class="desc">{{item.title}}</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Detail extends wepy.component {
+    props = {
+      item: {
+        type: Object
+      }
+    }
+  }
+</script>

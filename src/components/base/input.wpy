@@ -1,0 +1,43 @@
+<style lang="less">
+  .search_input_box {
+    margin: 25rpx 25rpx 0px;
+    background: #f0f1f3;
+    border-radius: 35rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .search_icon {
+      width: 35rpx;
+      height: 35rpx;
+      margin: 0px 25rpx;
+    }
+    .input {
+      height: 70rpx;
+      flex: 1;
+      font-size: 28rpx;
+    }
+  }
+</style>
+
+<template>
+  <view class="search_input_box">
+    <image class="search_icon" src="../../assets/search/search.png"></image>
+    <input class="input" placeholder="{{placeholder}}" type="text" value="{{keyword}}"></input>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Input extends wepy.component {
+    props = {
+      keyword: {
+        type: String
+      },
+      placeholder: {
+        type: String,
+        default: '请输入搜索内容'
+      }
+    }
+  }
+</script>

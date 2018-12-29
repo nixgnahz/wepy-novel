@@ -1,0 +1,62 @@
+<style lang="less">
+  @import "../style/person.less";
+</style>
+
+<template>
+  <userInfo :userInfo="userInfo"></userInfo>
+  <account class="border" :userInfo="userInfo"></account>
+  <payItem class="border" title="我要充值" :isNew="isNew" url="./pay">
+    <image class="icon" slot="icon" src="../assets/person/pay.png"></image>
+  </payItem>
+  <activityItem title="活动中心" url="./activity">
+    <image class="icon" slot="icon" src="../assets/person/activity.png"></image>
+  </activityItem>
+  <contactItem class="border" title="联系我们" url="./contact">
+    <image class="icon" slot="icon" src="../assets/person/contact.png"></image>
+  </contactItem>
+  <buyItem title="充值记录" url="./buy">
+    <image class="icon" slot="icon" src="../assets/person/buy.png"></image>
+  </buyItem>
+  <phoneItem class="border" title="绑定手机" url="./phone">
+    <image class="icon" slot="icon" src="../assets/person/phone.png"></image>
+  </phoneItem>
+  <messageItem title="消息中心" url="./message">
+    <image class="icon" slot="icon" src="../assets/person/message.png"></image>
+  </messageItem>
+  <helpItem title="帮助中心" url="./help">
+    <image class="icon" slot="icon" src="../assets/person/help.png"></image>
+  </helpItem>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import UserInfo from '@/components/base/userInfo'
+  import Account from '@/components/person/account'
+  import NavigateItem from '@/components/person/navigateItem'
+
+  export default class Person extends wepy.page {
+    components = {
+      userInfo: UserInfo,
+      account: Account,
+      payItem: NavigateItem,
+      activityItem: NavigateItem,
+      contactItem: NavigateItem,
+      buyItem: NavigateItem,
+      messageItem: NavigateItem,
+      phoneItem: NavigateItem,
+      helpItem: NavigateItem
+    }
+
+    data = {
+      isNew: true,
+      userInfo: {
+        avatar: 'https://wx.qlogo.cn/mmopen/vi_32/1uicRfUe5tvNJ9rWibC2qll1PlEzykEaib9hpReknoWp7QV786XFhqftdVCefK2XFHJDrEfjibfqwr4qbWXCAU71Ww/132',
+        name: '我的英文名字叫zhangxin',
+        account: 'msd20180923',
+        money: 0,
+        gift: 0,
+        cash: '0.00'
+      }
+    }
+  }
+</script>

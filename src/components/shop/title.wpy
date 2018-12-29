@@ -1,0 +1,19 @@
+<template>
+  <view class="title_item">
+    <i class="icon"></i>
+    <text class="title">{{info.name}}</text>
+    <slot name="action"></slot>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Title extends wepy.component {
+    props = {
+      info: {
+        type: Object
+      }
+    }
+  }
+</script>

@@ -1,0 +1,158 @@
+.detail {
+  padding: 30rpx;
+  .entry {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .avatar {
+      width: 190rpx;
+      height: 250rpx;
+      box-shadow: 0 2px 1px #adabab;
+      background: url(http://cj.qirexiaoshuo.com/image/shadow-bg.png);
+      background-repeat: no-repeat;
+      padding-bottom: 10rpx;
+      background-position: 0 bottom;
+    }
+    .body {
+      flex: 1;
+      margin-left: 50rpx;
+      .name {
+        width: 400rpx;
+        font-size: 30rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 10rpx;
+        margin-bottom: 15rpx;
+        color: #333;
+      }
+      .label {
+        margin-bottom: 25rpx;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        view {
+          font-size: 23rpx;
+          color: #f76a8d;
+          padding: 0 12rpx;
+          height: 44rpx;
+          border-radius: 8rpx;
+          line-height: 44rpx;
+          border: 1px solid #fcc3d1;
+          margin-right: 15rpx;
+          &.red {
+            border-color: #fcc3d1;
+            color: #f76a8d;
+          }
+          &.green {
+            border-color: #a6ebd1;
+            color: #21cc8c;
+          }
+          &.blue {
+            border-color: #c7dbf4;
+            color: #72a5e3;
+          }
+          &.orange {
+            border-color: #fedac7;
+            color: #fda374;
+          }
+        }
+      }
+      .rows {
+        display: flex;
+        flex-direction: row;
+        .text {
+          width: 50%;
+          font-size: 24rpx;
+          color: #797979;
+          line-height: 44rpx;
+        }
+      }
+    }
+  }
+  .action {
+    margin: 30rpx auto;
+    padding: 15rpx 0px 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    view {
+      width: 40%;
+      height: 70rpx;
+      line-height: 70rpx;
+      text-align: center;
+      color: #fff;
+      font-size: 30rpx;
+      border-radius: 40rpx;
+      margin: 0 15rpx;
+      box-sizing: border-box;
+    }
+    .blue {
+      background: #fff;
+      border: 1px solid #f98700;
+      color: #f98700;
+    }
+    .orange {
+      background: #f5534a;
+      color: #fff;
+    }
+  }
+  .desc {
+    font-size: 28rpx;
+    line-height: 48rpx;
+    color: #888;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+.update {
+  overflow: hidden;
+  border-top: 1rpx solid #ebebeb;
+  border-bottom: 1rpx solid #ebebeb;
+  padding: 0px 20rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  navigator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .details-catalog-icon {
+      width: 30rpx;
+      height: 24rpx;
+      background-position: 0 0;
+      background: url(http://cj.qirexiaoshuo.com/image/d-icon.png);
+      background-repeat: no-repeat;
+      background-size: 200rpx 200rpx;
+    }
+    .title {
+      font-size: 26rpx;
+      padding: 28rpx 15rpx 28rpx 15rpx;
+      border-right: 1px solid #ebebeb;
+      color: #868686;
+    }
+  }
+  .desc {
+    width: 60%;
+    font-size: 26rpx;
+    color: #f5534a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 28rpx 0;
+    padding-left: 17rpx;
+  }
+  .time {
+    font-size: 24rpx;
+    color: #f5534a;
+    padding: 28rpx 0;
+  }
+}

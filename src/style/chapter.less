@@ -1,0 +1,56 @@
+.catalog {
+  padding: 0 30rpx;
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 99rpx;
+    line-height: 99rpx;
+    .size {
+      font-size: 30rpx;
+      color: #999;
+    }
+    .order {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      view {
+        font-size: 28rpx;
+        color: #999;
+        margin-left: 17rpx;
+        &.active {
+          color: #ff7800;
+        }
+      }
+    }
+  }
+  .entry {
+    .chapter-item {
+      color: #555;
+      height: 99rpx;
+      line-height: 99rpx;
+      display: block;
+      border-top: 1rpx solid #eee;
+      font-size: 30rpx;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .free {
+        color: #f46933;
+        font-size: 26rpx;
+      }
+      .unlock {
+        icon {
+          width: 30rpx;
+          height: 28rpx;
+          background: url(http://cj.qirexiaoshuo.com/image/catalog-lock-icon.png);
+          background-repeat: no-repeat;
+          background-size: 30rpx 56rpx;
+          margin-right: 12rpx;
+          background-position: 0rpx 0rpx;
+        }
+      }
+    }
+  }
+}

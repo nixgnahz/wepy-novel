@@ -1,3 +1,9 @@
+<style lang="less">
+  .recommend-swiper {
+    height: 330rpx;
+  }
+</style>
+
 <template>
   <title :info="recommend"></title>
   <swiper class="recommend-swiper" autoplay="true" circular="true" duration="500" interval="5000">

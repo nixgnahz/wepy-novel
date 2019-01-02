@@ -14,7 +14,7 @@
 <script>
   import wepy from 'wepy'
   import Swiper from '@/components/shop/swiper'
-  import Recommend from '@/components/shop/recommend'
+  import Recommend from '@/components/base/recommend'
   import Hot from '@/components/shop/hot'
   import Free from '@/components/shop/free'
   import Like from '@/components/shop/like'

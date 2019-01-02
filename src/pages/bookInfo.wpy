@@ -1,15 +1,117 @@
 <style lang="less">
-
+  @import "../style/bookInfo.less";
 </style>
 
 <template>
-
+  <view class="detail">
+    <view class="entry">
+      <image backgroundSize="cover" class="avatar" lazyLoad="true" src="{{bookInfo.pic}}"></image>
+      <view class="body">
+        <view class="name">{{bookInfo.name}}</view>
+        <view class="label">
+          <view class="red" wx:if="{{labelArr[0]}}">{{labelArr[0]}}</view>
+          <view class="green" wx:if="{{labelArr[1]}}">{{labelArr[1]}}</view>
+          <view class="blue" wx:if="{{labelArr[2]}}">{{labelArr[2]}}</view>
+          <view class="orange" wx:if="{{labelArr[3]}}">{{labelArr[3]}}</view>
+        </view>
+        <view class="rows">
+          <view class="text">作者：{{bookInfo.author}}</view>
+          <view class="text">类型：{{bookInfo.type}}</view>
+        </view>
+        <view class="rows">
+          <view class="text">状态：已完结</view>
+          <view class="text">字数：{{bookInfo.size}}万字</view>
+        </view>
+      </view>
+    </view>
+    <view class="action">
+      <view class="blue">加入书架</view>
+      <view class="orange">立即阅读</view>
+    </view>
+    <view class="desc">{{bookInfo.title}}</view>
+  </view>
+  <view class="update">
+    <navigator hoverClass="none" openType="navigate" url="./chapter?id={{bookInfo.id}}">
+      <icon class="details-catalog-icon"></icon>
+      <view class="title">目录</view>
+    </navigator>
+    <view class="desc">{{bookInfo.latestChapter.chapterName}}</view>
+    <view class="time">{{bookInfo.latestChapter.time}}</view>
+  </view>
+  <recommend :recommend="similarRecommend"></recommend>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import Recommend from '@/components/base/recommend'
 
   export default class BookInfo extends wepy.page {
+    components = {
+      recommend: Recommend
+    }
 
+    data = {
+      bookInfo: {
+        id: 21026,
+        name: '婚不逢时：陆少，求放过',
+        author: '糖不苦',
+        type: '现代言情',
+        end: 1,
+        size: 1370009,
+        title: '他们的婚姻，来自于一纸契约。她为他生孩子，他替她救出父亲。安云溪扮演着最合适的角色， 成为最合格的妻子， 藏着最深刻的爱恋。直到她的父亲被他心爱的女人害死， 那个男人却安慰着罪魁祸首……一场车祸， 她消失在他的世界， 再见是她一身华裳和另一个男人的订婚宴……“ 安云溪， 是谁允许你去勾搭别的男人！” 男人冷凝邪肆， 步步紧逼。她淡笑，“ 陆少， 协议已失效。” ',
+        pic: 'https://p.qirexiaoshuo.com/uploads/image/20170720/59701dd5415b2.jpg',
+        label: '总裁,前妻,虐恋,契约',
+        latestChapter: {
+          chapterName: '第408章 用戒指套住你一生（完结）',
+          time: '06-09 11:16'
+        }
+      },
+      similarRecommend: {
+        id: 1,
+        name: '猜你喜欢',
+        data: [
+          [
+            {
+              id: 14628,
+              name: '丹师剑宗',
+              pic: 'https://p.qirexiaoshuo.com/uploads/book/201811/01/book201811011534082157.jpg'
+            },
+            {
+              id: 43341,
+              name: '重生之超级学霸',
+              pic: 'https://p.qirexiaoshuo.com/uploads/book/201812/24/book201812241126149296.jpg'
+            },
+            {
+              id: 25634,
+              name: '都市全能神医',
+              pic: 'https://p.qirexiaoshuo.com/uploads/book/201711/30/book201711301648283450.jpg'
+            }
+          ],
+          [
+            {
+              id: 25625,
+              name: '贫僧法号不戒色',
+              pic: 'https://p.qirexiaoshuo.com/uploads/book/201811/30/book201811301429469235.jpg'
+            },
+            {
+              id: 30782,
+              name: '修罗武神',
+              pic: 'https://p.qirexiaoshuo.com/uploads/book/201809/05/book201809051639169548.jpg'
+            },
+            {
+              id: 40533,
+              name: '迷失的岁月',
+              pic: 'https://p.qirexiaoshuo.com/uploads/book/201808/06/book201808061616001538.jpg'
+            }
+          ]
+        ]
+      }
+    }
+
+    computed = {
+      labelArr () {
+        return this.bookInfo.label.split(',')
+      }
+    }
   }
 </script>

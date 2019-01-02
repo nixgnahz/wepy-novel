@@ -1,8 +1,8 @@
 <template>
-  <view class="novel-item">
+  <navigator hoverClass="none" openType="navigate" url="./bookInfo?id={{item.id}}" class="novel-item">
     <image lazyLoad="true" src="{{item.pic}}"></image>
     <view class="novel-names">{{item.name}}</view>
-  </view>
+  </navigator>
 </template>
 
 <script>

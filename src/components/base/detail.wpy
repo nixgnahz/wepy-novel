@@ -1,7 +1,7 @@
 <template>
   <view class="detail_item">
     <image class="avatar" lazyLoad="true" src="{{item.pic}}"></image>
-    <view class="detail">
+    <navigator hoverClass="none" openType="navigate" url="./bookInfo?id={{item.id}}" class="detail">
       <view class="top">
         <view class="info">
           <text class="name">{{item.name}}</text>
@@ -10,7 +10,7 @@
         <view class="btn">立即阅读</view>
       </view>
       <view class="desc">{{item.title}}</view>
-    </view>
+    </navigator>
   </view>
 </template>
 

@@ -1,15 +1,311 @@
 <style lang="less">
-
+  @import "../style/chapter.less";
 </style>
 
 <template>
-
+  <view class="catalog">
+    <view class="title">
+      <view class="size">共{{bookInfo.size}}章</view>
+      <view class="order">
+        <view @tap="changeOrder(asc)" class="{{order === 'asc' ? 'active' : ''}}">正序↓</view>
+        <view @tap="changeOrder(desc)" class="{{order === 'desc' ? 'active' : ''}}">倒序↑</view>
+      </view>
+    </view>
+    <view class="entry">
+      <repeat for="{{chapters}}" key="index" index="index" item="item">
+        <view class="chapter-item">
+          <text>{{item.chapterName}}</text>
+          <view class="unlock" wx:if="{{item.isFree === 0}}">
+            <icon></icon>
+          </view>
+          <view class="free" wx:else>免费</view>
+        </view>
+      </repeat>
+    </view>
+  </view>
 </template>
 
 <script>
   import wepy from 'wepy'
 
   export default class Chapter extends wepy.page {
+    data = {
+      order: 'asc',
+      bookInfo: {
+        name: '婚不逢时：陆少，求放过',
+        size: 408
+      },
+      bookChapter: [
+        {
+          id: 4408955,
+          chapterName: '等1章 妻子的本分',
+          isFree: 1
+        },
+        {
+          id: 4408956,
+          chapterName: '等2章 你问我为什么',
+          isFree: 1
+        },
+        {
+          id: 4408957,
+          chapterName: '等3章 换人',
+          isFree: 1
+        },
+        {
+          id: 4408958,
+          chapterName: '等4章 你说我什么都不是',
+          isFree: 1
+        },
+        {
+          id: 4408959,
+          chapterName: '等5章 我们只是协议关系',
+          isFree: 1
+        },
+        {
+          id: 4408960,
+          chapterName: '等6章 你以为他真的希望你生孩子',
+          isFree: 1
+        },
+        {
+          id: 4408961,
+          chapterName: '等7章 我不能生孩子',
+          isFree: 1
+        },
+        {
+          id: 4408962,
+          chapterName: '等8章 抱着她',
+          isFree: 0
+        },
+        {
+          id: 4408963,
+          chapterName: '等9章 你是不是怀孕了',
+          isFree: 0
+        },
+        {
+          id: 4408964,
+          chapterName: '等10章 同床异梦',
+          isFree: 0
+        },
+        {
+          id: 4408965,
+          chapterName: '等11章 车祸',
+          isFree: 0
+        },
+        {
+          id: 4408966,
+          chapterName: '等12章 请假是为了他',
+          isFree: 0
+        },
+        {
+          id: 4408967,
+          chapterName: '等13章 勾搭别的男人',
+          isFree: 0
+        },
+        {
+          id: 4408968,
+          chapterName: '等14章 你真是大方',
+          isFree: 0
+        },
+        {
+          id: 4408969,
+          chapterName: '等15章 不是你逞强的时候',
+          isFree: 0
+        },
+        {
+          id: 4408970,
+          chapterName: '等16章 世界上有两件事不能强迫',
+          isFree: 0
+        },
+        {
+          id: 4408971,
+          chapterName: '等17章 你别进来',
+          isFree: 0
+        },
+        {
+          id: 4408972,
+          chapterName: '等18章 你今天睡在这里',
+          isFree: 0
+        },
+        {
+          id: 4408973,
+          chapterName: '等19章 你还有什么事',
+          isFree: 0
+        },
+        {
+          id: 4408974,
+          chapterName: '等20章 明天你还去么',
+          isFree: 0
+        },
+        {
+          id: 4408975,
+          chapterName: '等21章 你什么时候来的',
+          isFree: 0
+        },
+        {
+          id: 4408976,
+          chapterName: '等22章 把消息放出去',
+          isFree: 0
+        },
+        {
+          id: 4408977,
+          chapterName: '等23章 爱他无师自通',
+          isFree: 0
+        },
+        {
+          id: 4408978,
+          chapterName: '等24章 恼羞成怒了么',
+          isFree: 0
+        },
+        {
+          id: 4408979,
+          chapterName: '等25章 要被换掉了',
+          isFree: 0
+        },
+        {
+          id: 4408980,
+          chapterName: '等26章 开免提',
+          isFree: 0
+        },
+        {
+          id: 4408981,
+          chapterName: '等27章 我再给你一次机会',
+          isFree: 0
+        },
+        {
+          id: 4408982,
+          chapterName: '等28章 曼宁很好',
+          isFree: 0
+        },
+        {
+          id: 4408983,
+          chapterName: '等29章 我道歉',
+          isFree: 0
+        },
+        {
+          id: 4408984,
+          chapterName: '等30章 送我去医院',
+          isFree: 0
+        },
+        {
+          id: 4408985,
+          chapterName: '等31章 把人交出来',
+          isFree: 0
+        },
+        {
+          id: 4408986,
+          chapterName: '等32章 够了么',
+          isFree: 0
+        },
+        {
+          id: 4408987,
+          chapterName: '等33章 自作多情',
+          isFree: 0
+        },
+        {
+          id: 4408988,
+          chapterName: '等34章 震慑',
+          isFree: 0
+        },
+        {
+          id: 4408989,
+          chapterName: '等35章 不要质疑我的专业',
+          isFree: 0
+        },
+        {
+          id: 4408990,
+          chapterName: '等36章 陆少来了',
+          isFree: 0
+        },
+        {
+          id: 4408991,
+          chapterName: '等37章 两个方案',
+          isFree: 0
+        },
+        {
+          id: 4408992,
+          chapterName: '等38章 有人',
+          isFree: 0
+        },
+        {
+          id: 4408993,
+          chapterName: '等39章 报警吧',
+          isFree: 0
+        },
+        {
+          id: 4408994,
+          chapterName: '等40章 退出',
+          isFree: 0
+        },
+        {
+          id: 4408995,
+          chapterName: '等41章 我在这里等你',
+          isFree: 0
+        },
+        {
+          id: 4408996,
+          chapterName: '等42章 我的眼光很好',
+          isFree: 0
+        },
+        {
+          id: 4408997,
+          chapterName: '等43章 陆少真是艳福不浅',
+          isFree: 0
+        },
+        {
+          id: 4408998,
+          chapterName: '等44章 钱小姐对我妻子有意见',
+          isFree: 0
+        },
+        {
+          id: 4408999,
+          chapterName: '等45章 我不能和你走',
+          isFree: 0
+        },
+        {
+          id: 4409000,
+          chapterName: '等46章 一群无知的女人',
+          isFree: 0
+        },
+        {
+          id: 4409001,
+          chapterName: '等47章 陆希尧你松开',
+          isFree: 0
+        },
+        {
+          id: 4409002,
+          chapterName: '等48章 多年煎熬',
+          isFree: 0
+        },
+        {
+          id: 4409003,
+          chapterName: '等49章 我是不是来过这里',
+          isFree: 0
+        },
+        {
+          id: 4409004,
+          chapterName: '等50章 不要脸的女人',
+          isFree: 0
+        },
+        {
+          id: 4409005,
+          chapterName: '等51章 绿帽子',
+          isFree: 0
+        }
+      ]
+    }
 
+    computed = {
+      chapters () {
+        return this.order === 'asc' ? this.bookChapter : [...this.bookChapter].reverse()
+      }
+    }
+
+    methods = {
+      changeOrder (order) {
+        if (this.order !== order) {
+          this.order = order
+        }
+      }
+    }
   }
 </script>

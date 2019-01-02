@@ -1,0 +1,84 @@
+.bg {
+  min-height: 100%;
+  &.default-bg {
+    background: #f6f6ee;
+  }
+  &.comfort-bg {
+    background: #f6eedf;
+  }
+  .name {
+    font-weight: 600;
+    font-size: 30rpx;
+    text-align: left;
+    padding: 35rpx;
+    color: #333;
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 35rpx 10rpx 35rpx;
+    image {
+      width: 96rpx;
+      height: 96rpx;
+      border-radius: 50%;
+    }
+    .text {
+      margin-left: 24rpx;
+      font-size: 36rpx;
+      color: #41669a;
+    }
+  }
+  .row {
+    width: 100%;
+    padding: 30rpx 30rpx;
+    display: flex;
+    align-items: center;
+    border-top: 1rpx solid #d9d9d9;
+    margin: 0 auto;
+    box-sizing: border-box;
+    .btn {
+      width: 229rpx;
+      height: 75rpx;
+      line-height: 75rpx;
+      color: #333;
+      font-size: 32rpx;
+      text-align: center;
+      border-radius: 6rpx;
+      border: 2rpx solid #bbb;
+    }
+    .icon {
+      width: 229rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      icon {
+        width: 52rpx;
+        height: 42rpx;
+        background-position: 0 -125rpx;
+        background-image: url(http://cj.qirexiaoshuo.com/image/d-icon.png);
+        background-repeat: no-repeat;
+        background-size: 200rpx 200rpx;
+      }
+    }
+  }
+}
+
+.wxParse-content {
+  line-height: 64rpx;
+  padding: 25rpx;
+  text-indent: 70rpx;
+  color: #333;
+  &.small {
+    font-size: 28rpx;
+  }
+  &.middle {
+    font-size: 35rpx;
+  }
+  &.big {
+    font-size: 42rpx;
+  }
+  view {
+    margin: 15rpx 0px;
+  }
+}

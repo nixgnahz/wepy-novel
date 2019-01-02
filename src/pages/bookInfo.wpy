@@ -39,6 +39,20 @@
     <view class="time">{{bookInfo.latestChapter.time}}</view>
   </view>
   <recommend :recommend="similarRecommend"></recommend>
+  <view class="title_item">
+    <i class="icon"></i>
+    <text class="title">评论（共{{comments.size}}条）</text>
+  </view>
+  <repeat for="{{comments.data}}" key="index" index="index" item="item">
+    <view class="comment-item">
+      <image backgroundSize="cover" class="avatar" lazyLoad="true" src="{{item.avatar}}"></image>
+      <view class="info">
+        <text class="name">{{item.name}}</text>
+        <text class="content">{{item.content}}</text>
+        <text class="time">{{item.time}}</text>
+      </view>
+    </view>
+  </repeat>
 </template>
 
 <script>
@@ -104,6 +118,29 @@
               pic: 'https://p.qirexiaoshuo.com/uploads/book/201808/06/book201808061616001538.jpg'
             }
           ]
+        ]
+      },
+      comments: {
+        size: 64,
+        data: [
+          {
+            avatar: 'https://wx.qlogo.cn/mmhead/b24rI3ziaTuX1ibjUJTsyCjibe3QEeu3JDJUq6KcUNmcT4/132',
+            name: '张盈宜',
+            content: '不好看',
+            time: '2018-12-12 12:12:12'
+          },
+          {
+            avatar: 'https://wx.qlogo.cn/mmhead/zKvYsYJrqgLngl3WFhhEWUYz81RVxicWO6WfFnXmqgHI/132',
+            name: '陈怡哲',
+            content: '差评，写的什么玩意，错别字一堆',
+            time: '2018-12-12 12:12:12'
+          },
+          {
+            avatar: 'https://wx.qlogo.cn/mmhead/zKvYsYJrqgLngl3WFhhEWUYz81RVxicWO6WfFnXmqgHI/132',
+            name: '陈怡哲',
+            content: '退钱，退钱，退钱，退钱，退钱，退钱，退钱，退钱，退钱，退钱，退钱，退钱',
+            time: '2018-12-12 12:12:12'
+          }
         ]
       }
     }

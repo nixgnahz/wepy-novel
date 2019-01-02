@@ -13,13 +13,13 @@
     </view>
     <view class="entry">
       <repeat for="{{chapters}}" key="index" index="index" item="item">
-        <view class="chapter-item">
+        <navigator hoverClass="none" openType="navigate" url="./read?id={{bookInfo.id}}" class="chapter-item">
           <text>{{item.chapterName}}</text>
           <view class="unlock" wx:if="{{item.isFree === 0}}">
             <icon></icon>
           </view>
           <view class="free" wx:else>免费</view>
-        </view>
+        </navigator>
       </repeat>
     </view>
   </view>

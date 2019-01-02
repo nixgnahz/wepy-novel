@@ -9,14 +9,14 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/bookInfo',
+      'pages/search',
       'pages/shop',
       'pages/index',
+      'pages/bookInfo',
       'pages/chapter',
       'pages/read',
       'pages/more',
       'pages/person',
-      'pages/search',
       'pages/pay'
     ],
     window: {

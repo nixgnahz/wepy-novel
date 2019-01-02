@@ -5,7 +5,7 @@
   </view>
   <view class="search_list search_hot">
     <repeat for="{{hotSearch}}" key="index" index="index" item="item">
-      <view class="listItem">{{item.text}}</view>
+      <view class="listItem" @tap="searchInput({{item.text}})">{{item.text}}</view>
     </repeat>
   </view>
 </template>
@@ -17,6 +17,12 @@
     props = {
       hotSearch: {
         type: Array
+      }
+    }
+
+    methods = {
+      searchInput (text) {
+        this.$emit('search', text)
       }
     }
   }

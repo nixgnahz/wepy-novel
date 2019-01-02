@@ -3,9 +3,22 @@
 </style>
 
 <template>
-  <input placeholder="搜索书名、作者、出版社"></input>
-  <hot :hotSearch="hotSearch"></hot>
-  <recent :recentSearch="recentSearch"></recent>
+  <input placeholder="搜索书名、作者、出版社" :keyword.sync="keyword"></input>
+  <block wx:if="{{!showResult}}">
+    <hot :hotSearch="hotSearch"></hot>
+    <recent :recentSearch="recentSearch"></recent>
+  </block>
+  <block wx:else>
+    <view class="search-result" wx:if="{{isSearchSuccess}}">
+      搜索“<text class="red">{{keyword}}</text>”，结果共<text class="red">{{resultArr.length}}</text>条
+    </view>
+    <view class="search-empty" wx:else>
+      没有找到“<text class="red">{{keyword}}</text>”相关结果，看看下面这些是不是您要找的：
+    </view>
+    <repeat for="{{resultArr}}" key="index" index="index" item="item">
+      <detail :item="item"></detail>
+    </repeat>
+  </block>
 </template>
 
 <script>
@@ -13,15 +26,20 @@
   import Input from '@/components/base/input'
   import Hot from '@/components/search/hot'
   import Recent from '@/components/search/recent'
+  import Detail from '@/components/base/detail'
 
   export default class Search extends wepy.page {
     components = {
       input: Input,
       hot: Hot,
-      recent: Recent
+      recent: Recent,
+      detail: Detail
     }
 
     data = {
+      showResult: 0,
+      keyword: '',
+      isSearchSuccess: 1,
       hotSearch: [
         {
           id: 1,
@@ -74,7 +92,54 @@
           text: '逍遥兵王'
         }
       ],
-      keyword: ''
+      resultArr: [
+        {
+          id: 22888,
+          name: '超强战兵',
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201809/18/book201809181001507977.jpg',
+          author: '玖月',
+          title: '苏狂是战场上最强的利剑，是血色的风暴，他所到之处血雨腥风，却受命退伍，返回都市，开启了一段香yan而疯狂的征服之路。男人见了他色变，女人见了他‘变色’，无论是战场还是繁华都市，他都是最强大的男人，最碉堡的战兵。'
+        },
+        {
+          id: 14001,
+          name: '总裁保镖',
+          pic: 'https://p.qirexiaoshuo.com/uploads/image/20170331/58de054d3f696.jpg',
+          author: '老九',
+          title: '回国后无所事事，还因为救人被美女总裁误会是色狼，不但拳打脚踢，还在脸上打了一巴掌。女人是祸水，尤其是美女，美女总裁更是祸水中的祸水。为了保住自己的清白，他和美女大总裁斗智斗勇，更是吃尽豆腐。没有想到却换来一份保镖的工作，跟在美女大总裁身后，贴身保护。男人羡慕的工作，对他来说却是噩梦一般生活的开始。'
+        },
+        {
+          id: 11626,
+          name: '美女总裁的贴身保镖',
+          pic: 'https://p.qirexiaoshuo.com/uploads/image/20170118/587eeec295a7d.jpg',
+          author: '风中的阳光',
+          title: '听说过不满婚姻而离家出走的新娘，可有谁像楚铮那样，在洞房花烛之夜溜之大吉，只为追求他所爱的女人；柴紫烟勃然大怒：姓楚的，你敢玩我，我要让你生不如死！'
+        }
+      ]
+    }
+
+    watch = {
+      keyword () {
+        if (!this.keyword) {
+          this.showResult = 0
+          this.$apply()
+        }
+      }
+    }
+
+    events = {
+      search (keyword) {
+        this.keyword = keyword
+        this.showResult = 1
+      },
+      clearSearch () {
+        this.keyword = ''
+        this.showResult = 0
+      },
+      searchResult () {
+        if (this.keyword) {
+          this.showResult = 1
+        }
+      }
     }
   }
 </script>

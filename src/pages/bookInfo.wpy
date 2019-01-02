@@ -35,8 +35,10 @@
       <icon class="details-catalog-icon"></icon>
       <view class="title">目录</view>
     </navigator>
-    <view class="desc">{{bookInfo.latestChapter.chapterName}}</view>
-    <view class="time">{{bookInfo.latestChapter.time}}</view>
+    <navigator hoverClass="none" openType="navigate" url="./read?id={{bookInfo.latestChapter.id}}">
+      <view class="desc">{{bookInfo.latestChapter.chapterName}}</view>
+      <view class="time">{{bookInfo.latestChapter.time}}</view>
+    </navigator>
   </view>
   <recommend :recommend="similarRecommend"></recommend>
   <view class="title_item">
@@ -76,6 +78,7 @@
         pic: 'https://p.qirexiaoshuo.com/uploads/image/20170720/59701dd5415b2.jpg',
         label: '总裁,前妻,虐恋,契约',
         latestChapter: {
+          id: 4408993,
           chapterName: '第408章 用戒指套住你一生（完结）',
           time: '06-09 11:16'
         }

@@ -1,28 +1,40 @@
 <style lang="less">
   .search_input_box {
-    margin: 25rpx 25rpx 0px;
-    background: #f0f1f3;
-    border-radius: 35rpx;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    .search_icon {
-      width: 35rpx;
-      height: 35rpx;
-      margin: 0px 25rpx;
-    }
-    .input {
-      height: 70rpx;
-      flex: 1;
-      font-size: 28rpx;
+    padding: 25rpx 25rpx 0px;
+    .search_input {
+      background: #f0f1f3;
+      border-radius: 35rpx;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .search_icon {
+        width: 35rpx;
+        height: 35rpx;
+        margin: 0px 25rpx;
+      }
+      .input {
+        height: 70rpx;
+        flex: 1;
+        font-size: 28rpx;
+      }
+      .icon-close {
+        width: 35rpx;
+        height: 35rpx;
+        margin: 0px 25rpx;
+        background-image: url(http://cj.qirexiaoshuo.com/image/share-close-icon.png);
+        background-size: cover;
+      }
     }
   }
 </style>
 
 <template>
   <view class="search_input_box">
-    <image class="search_icon" src="../../assets/search/search.png"></image>
-    <input class="input" placeholder="{{placeholder}}" type="text" value="{{keyword}}"></input>
+    <view class="search_input">
+      <image class="search_icon" src="../../assets/search/search.png"></image>
+      <input class="input" placeholder="{{placeholder}}" type="text" @blur="search" @input="getInput" value="{{keyword}}"></input>
+      <icon @tap="clearSearch" wx:if="{{showClose}}" class="icon-close"></icon>
+    </view>
   </view>
 </template>
 
@@ -32,11 +44,31 @@
   export default class Input extends wepy.component {
     props = {
       keyword: {
+        twoWay: true,
         type: String
       },
       placeholder: {
         type: String,
         default: '请输入搜索内容'
+      }
+    }
+
+    computed = {
+      showClose () {
+        return this.keyword ? 1 : 0
+      }
+    }
+
+    methods = {
+      getInput (e) {
+        const value = e.detail.value
+        this.keyword = value
+      },
+      clearSearch () {
+        this.$emit('clearSearch')
+      },
+      search () {
+        this.$emit('searchResult')
       }
     }
   }

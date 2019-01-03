@@ -3,6 +3,10 @@
 </style>
 
 <template>
+  <navigator class="header" hoverClass="none" openType="switchTab" url="./search">
+    <image backgroundSize="cover" class="brand" src="../assets/brand.png"></image>
+    <image backgroundSize="cover" class="search" src="../assets/search/search.png"></image>
+  </navigator>
   <swiper :swiper="swiper"></swiper>
   <recommend :recommend="recommend"></recommend>
   <hot :hot="hot"></hot>

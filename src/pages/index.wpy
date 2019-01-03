@@ -1,15 +1,28 @@
 <style lang="less">
-
+  @import "../style/index.less";
 </style>
 
 <template>
-
+  <menu :activeIndex="activeIndex"></menu>
+  <shelf wx:if="{{!activeIndex}}"></shelf>
+  <recent wx:else></recent>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import Menu from '@/components/index/menu'
+  import Shelf from '@/components/index/shelf'
+  import Recent from '@/components/index/recent'
 
   export default class Index extends wepy.page {
+    components = {
+      menu: Menu,
+      shelf: Shelf,
+      recent: Recent
+    }
 
+    data = {
+      activeIndex: 0
+    }
   }
 </script>

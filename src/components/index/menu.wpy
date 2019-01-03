@@ -1,0 +1,29 @@
+<template>
+  <view class="menu">
+    <view @tap="changeIndex(0)" class="{{!activeIndex ? 'active' : ''}}">我的书架</view>
+    <icon></icon>
+    <view @tap="changeIndex(1)" class="{{activeIndex ? 'active' : ''}}">历史阅读</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Menu extends wepy.component {
+    props = {
+      activeIndex: {
+        type: Number,
+        default: 0,
+        twoWay: true
+      }
+    }
+
+    methods = {
+      changeIndex (index) {
+        if (Number(index) !== this.activeIndex) {
+          this.activeIndex = Number(index)
+        }
+      }
+    }
+  }
+</script>

@@ -1,0 +1,42 @@
+.menu {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  icon {
+    width: 2px;
+    height: 36rpx;
+    background: #f2f2f2;
+  }
+  view {
+    width: 40%;
+    text-align: center;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    color: #666;
+    border-bottom: 1px solid transparent;
+    &.active {
+      border-bottom: 1px solid #ff730b;
+      color: #ff730b;
+      font-weight: bold;
+    }
+  }
+}
+
+.record-box {
+  height: 88rpx;
+  line-height: 88rpx;
+  padding: 0rpx 30rpx;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  .len {
+    font-size: 28rpx;
+    color: #666;
+  }
+}

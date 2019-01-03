@@ -1,0 +1,15 @@
+<template>
+  <view class="record-box">
+    <view class="len">共{{books.length}}条书架记录</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Shelf extends wepy.component {
+    props = {
+      books: Array
+    }
+  }
+</script>

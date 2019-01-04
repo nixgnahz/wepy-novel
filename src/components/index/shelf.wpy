@@ -1,6 +1,17 @@
 <template>
   <view class="record-box">
     <view class="len">共{{books.length}}条书架记录</view>
+    <image src="../../assets/finish.png" wx:if="{{showDel}}" @tap="hideDel"></image>
+    <image src="../../assets/set.png" wx:else @tap="showDel"></image>
+  </view>
+  <view class="shelf-list">
+    <repeat for="{{books}}" key="item.id" index="index" item="item">
+      <navigator hoverClass="none" openType="{{showDel ? '' : 'navigate'}}" url="./bookInfo?id={{item.id}}" class="record-item">
+        <image backgroundSize="cover" class="close" @tap.stop="delShelf({{index}})" src="../../assets/close.png" wx:if="{{showDel}}"></image>
+        <image backgroundSize="cover" class="cover" src="{{item.pic}}"></image>
+        <view>{{item.name}}</view>
+      </navigator>
+    </repeat>
   </view>
 </template>
 
@@ -10,6 +21,22 @@
   export default class Shelf extends wepy.component {
     props = {
       books: Array
+    }
+
+    data = {
+      showDel: false
+    }
+
+    methods = {
+      showDel () {
+        this.showDel = true
+      },
+      hideDel () {
+        this.showDel = false
+      },
+      delShelf (index) {
+        this.books.splice(index, 1)
+      }
     }
   }
 </script>

@@ -1,5 +1,18 @@
 <template>
-
+  <view class="record-box">
+    <view class="len">共{{books.length}}条阅读记录</view>
+  </view>
+  <repeat for="{{books}}" key="index" index="index" item="item">
+    <navigator hoverClass="none" openType="navigate" url="./read?id={{item.lastChapter.id}}" class="record-list">
+      <image backgroundSize="cover" src="{{item.pic}}"></image>
+      <view class="info">
+        <text class="name">{{item.name}}</text>
+        <text class="chapter">上次看到：第{{item.lastChapter.chapter}}章</text>
+        <text class="time">{{item.time}}</text>
+      </view>
+      <view class="btn">继续阅读</view>
+    </navigator>
+  </repeat>
 </template>
 
 <script>
@@ -7,7 +20,7 @@
 
   export default class Recent extends wepy.component {
     props = {
-
+      books: Array
     }
   }
 </script>

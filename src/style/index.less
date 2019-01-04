@@ -39,4 +39,83 @@
     font-size: 28rpx;
     color: #666;
   }
+  image {
+    width: 40rpx;
+    height: 40rpx;
+  }
+}
+
+.record-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+  image {
+    width: 120rpx;
+    height: 140rpx;
+    margin: 25rpx;
+  }
+  .info {
+    flex: 1;
+    height: 130rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .name {
+      font-size: 30rpx;
+    }
+    .chapter {
+      font-size: 28rpx;
+      color: #999;
+    }
+    .time {
+      font-size: 25rpx;
+      color: #999;
+    }
+  }
+  .btn {
+    font-size: 28rpx;
+    width: 150rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    text-align: center;
+    border: 2rpx solid #ff8859;
+    border-radius: 10rpx;
+    color: #ff8859;
+    margin: 0px 25rpx;
+  }
+}
+
+.shelf-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .record-item {
+    width: 250rpx;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60rpx;
+    .close {
+      width: 50rpx;
+      height: 50rpx;
+      position: absolute;
+      top: -25rpx;
+      right: 20rpx;
+    }
+    .cover {
+      width: 180rpx;
+      height: 220rpx;
+    }
+    view {
+      text-align: center;
+      font-size: 30rpx;
+      width: 180rpx;
+      margin-top: 15rpx;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
 }

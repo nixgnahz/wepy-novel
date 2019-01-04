@@ -4,8 +4,12 @@
 
 <template>
   <menu :activeIndex="activeIndex"></menu>
-  <shelf wx:if="{{!activeIndex}}"></shelf>
-  <recent wx:else></recent>
+  <block wx:if="{{!activeIndex}}">
+    <shelf :books="shelfRecords"></shelf>
+  </block>
+  <block wx:else>
+    <recent :books="readRecords"></recent>
+  </block>
 </template>
 
 <script>
@@ -22,7 +26,71 @@
     }
 
     data = {
-      activeIndex: 0
+      activeIndex: 0,
+      readRecords: [
+        {
+          id: 22823,
+          name: '超级狂少',
+          time: '2018-10-12 12:12:12',
+          lastChapter: {
+            id: 1,
+            chapter: 1
+          },
+          pic: 'https://p.qirexiaoshuo.com/uploads/image/20171008/59d9c855e2db2.jpg'
+        },
+        {
+          id: 27318,
+          name: '女总裁的贴身狂兵',
+          time: '2018-11-12 12:12:12',
+          lastChapter: {
+            id: 2,
+            chapter: 2
+          },
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201801/03/book201801031635504538.jpg'
+        },
+        {
+          id: 40797,
+          name: '都市之修真仙帝',
+          time: '2018-12-12 12:12:12',
+          lastChapter: {
+            id: 6,
+            chapter: 6
+          },
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201808/07/book201808070942203248.jpg'
+        }
+      ],
+      shelfRecords: [
+        {
+          id: 11181,
+          name: '闪婚厚爱：误嫁天价老公',
+          pic: 'https://p.qirexiaoshuo.com/uploads/image/20170109/5872f2cf2ea81.jpg'
+        },
+        {
+          id: 18193,
+          name: '强势夺爱',
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201805/21/book201805211922394033.jpg'
+        },
+        {
+          id: 11684,
+          name: '错嫁替婚总裁',
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201810/25/book201810251724398176.jpg'
+        },
+        {
+          id: 25625,
+          name: '贫僧法号不戒色',
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201811/30/book201811301429469235.jpg'
+        },
+        {
+          id: 30782,
+          name: '修罗武神',
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201809/05/book201809051639169548.jpg'
+        },
+        {
+          id: 40533,
+          name: '迷失的岁月',
+          pic: 'https://p.qirexiaoshuo.com/uploads/book/201808/06/book201808061616001538.jpg'
+        }
+      ]
     }
   }
 </script>

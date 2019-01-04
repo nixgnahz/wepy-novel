@@ -5,7 +5,10 @@
       <view class="top">
         <view class="info">
           <text class="name">{{item.name}}</text>
-          <text class="author">{{item.author}}</text>
+          <view class="author">
+            <image src="../../assets/writer.png"></image>
+            <text>{{item.author}}</text>
+          </view>
         </view>
         <view class="btn">立即阅读</view>
       </view>

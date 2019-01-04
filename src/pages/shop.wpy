@@ -9,6 +9,8 @@
   </navigator>
   <swiper :swiper="swiper"></swiper>
   <recommend :recommend="recommend"></recommend>
+  <male :classify="maleArr"></male>
+  <female :classify="femaleArr"></female>
   <hot :hot="hot"></hot>
   <free :free="free"></free>
   <like :like="like"></like>
@@ -23,6 +25,7 @@
   import Free from '@/components/shop/free'
   import Like from '@/components/shop/like'
   import Popular from '@/components/shop/popular'
+  import Classify from '@/components/shop/classify'
 
   export default class Shop extends wepy.page {
     components = {
@@ -31,7 +34,9 @@
       hot: Hot,
       free: Free,
       like: Like,
-      popular: Popular
+      popular: Popular,
+      male: Classify,
+      female: Classify
     }
 
     data = {
@@ -45,6 +50,78 @@
           pic: 'https://p.qirexiaoshuo.com/uploads/slide/201804/16/slide201804161741508866.jpg'
         }
       ],
+      maleArr: {
+        id: 5,
+        name: '男频分类',
+        data: [
+          {
+            id: 14623,
+            name: '现代都市',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201811/01/book201811011534082157.jpg'
+          },
+          {
+            id: 14624,
+            name: '科幻末世',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201812/24/book201812241126149296.jpg'
+          },
+          {
+            id: 14625,
+            name: '军事战争',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201711/30/book201711301648283450.jpg'
+          },
+          {
+            id: 14626,
+            name: '仙侠武侠',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201811/30/book201811301429469235.jpg'
+          },
+          {
+            id: 14627,
+            name: '悬疑灵异',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201809/05/book201809051639169548.jpg'
+          },
+          {
+            id: 14628,
+            name: '玄幻奇幻',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201808/07/book201808070942203248.jpg'
+          },
+          {
+            id: 14629,
+            name: '励志成功',
+            pic: 'https://p.qirexiaoshuo.com/uploads/image/20170118/587eeec295a7d.jpg'
+          }
+        ]
+      },
+      femaleArr: {
+        id: 5,
+        name: '女频分类',
+        data: [
+          {
+            id: 14623,
+            name: '现代都市',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201808/03/book201808030901256128.jpg'
+          },
+          {
+            id: 14624,
+            name: '总裁豪门',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201811/01/book201811011534082157.jpg'
+          },
+          {
+            id: 14625,
+            name: '青春校园',
+            pic: 'https://p.qirexiaoshuo.com/uploads/thumbstwo/1/20180514175639_64727.jpg'
+          },
+          {
+            id: 14626,
+            name: '古代言情',
+            pic: 'https://p.qirexiaoshuo.com/uploads/book/201809/18/book201809181001507977.jpg'
+          },
+          {
+            id: 14627,
+            name: '穿越重生',
+            pic: 'https://p.qirexiaoshuo.com/uploads/thumbstwo/4/20180523091130_67442.jpg'
+          }
+        ]
+      },
       recommend: {
         id: 1,
         name: '主编推荐',

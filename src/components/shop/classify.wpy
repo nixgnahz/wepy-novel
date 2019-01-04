@@ -1,0 +1,26 @@
+<template>
+  <title :info="classify"></title>
+  <view class="classify">
+    <repeat for="{{classify.data}}" key="index" index="index" item="item">
+      <navigator hoverClass="none" openType="navigate" url="./more" class="classify-item">
+        <image lazyLoad="true" backgroundSize="cover" src="{{item.pic}}"></image>
+        <text>{{item.name}}</text>
+      </navigator>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Title from '@/components/shop/title'
+
+  export default class Classify extends wepy.component {
+    props = {
+      classify: Object
+    }
+
+    components = {
+      title: Title
+    }
+  }
+</script>
